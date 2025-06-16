@@ -60,7 +60,7 @@ interface EditorData {
 const sections = [
   { id: "description", label: "Описание" },
   { id: "specs", label: "Характеристики" },
-  // { id: "related", label: "Сопутствующие товары" },
+  // { id: "related", label: "Сопутствующие товары" }
   { id: "reviews", label: "Отзывы" },
   { id: "questions", label: "Вопросы" },
 ];
@@ -306,6 +306,7 @@ export function ProductDescription({ product }: ProductDescriptionProps) {
   const handleSort2 = (value: string) => {
     console.log(value);
   };
+  console.log(errors.body?.message);
 
   return (
     <>

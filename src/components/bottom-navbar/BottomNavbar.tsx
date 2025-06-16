@@ -76,7 +76,7 @@ const BottomNavbar = () => {
 
   return (
     <>
-    <div className="fixed bottom-0 left-0 w-full z-[30] bg-white shadow-md border-t flex justify-around py-2 will-change-transform">
+    <div className="fixed bottom-0 left-0 w-full z-[50] bg-white shadow-md border-t flex justify-around py-2 will-change-transform">
       <NavItem src={NavBottomHome} label="Главная" href="/" />
       <NavItem src={NavBottomInfo} label="Информация" href="/about" />
       <NavCatalogItem
@@ -105,7 +105,7 @@ const BottomNavbar = () => {
 
           {menuOpen && (
             <div className="fixed inset-0 z-30 bg-transparent backdrop-blur-sm">
-              <div className="absolute  bottom-0 left-0 w-full h-full overflow-y-auto bg-white border shadow-lg animate-in slide-in-from-bottom-2 duration-200">
+              <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-y-auto bg-white border shadow-lg animate-in slide-in-from-bottom-2 duration-200">
                 <div className="mb-4 border-b">
                   <div className="p-[25px] flex justify-between items-center border-b">
                     <h3 className="text-lg text-textColor">Профиль</h3>

@@ -77,41 +77,49 @@ export const ProductSingleImages: React.FC<ProductSingleImagesProps> = ({
               </div>
             ))}
           </div>
-          <div className="flex justify-center gap-2 mt-2">
-            {Array.from({ length: allImages.length }).map((_, idx) => (
-              <span
-                key={idx}
-                className={`w-4 h-1 rounded-sm transition-all duration-300 ${
-                  idx === currentIndex ? "bg-cerulean" : "bg-gray-200"
-                }`}
-              ></span>
-            ))}
-          </div>
+          {Array.isArray(product.images) && product.images.length > 1 && (
+            <div className="flex justify-center gap-2 mt-2">
+              {Array.from({ length: allImages.length }).map((_, idx) => (
+                <span
+                  key={idx}
+                  className={`w-4 h-1 rounded-sm transition-all duration-300 ${
+                    idx === currentIndex ? "bg-cerulean" : "bg-gray-200"
+                  }`}
+                ></span>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Desktop View */}
         <div className="hidden sm:flex gap-[13px] justify-center">
-          <div
-            className=" flex-col gap-[15px] h-[500px] overflow-y-auto hidden sm:flex"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {[product.mainImage, ...(product?.images || [])].map((img, idx) => (
-              <div key={idx}>
-                <Image
-                  src={`${DOMAIN}/${img}`}
-                  alt="product"
-                  width={57}
-                  height={57}
-                  onClick={() => setActiveImage(img)}
-                  className={`w-[56px] h-[56px] cursor-pointer border  ${
-                    activeImage === img
-                      ? " border-cerulean"
-                      : "border-superSilver"
-                  }`}
-                />
+          {Array.isArray(product.images) && product.images.length > 1 && (
+            <div
+              className=" flex-col gap-[15px] h-[500px] overflow-y-auto hidden sm:flex"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              <div>
+                {[product.mainImage, ...(product?.images || [])].map(
+                  (img, idx) => (
+                    <div key={idx}>
+                      <Image
+                        src={`${DOMAIN}/${img}`}
+                        alt="product"
+                        width={57}
+                        height={57}
+                        onClick={() => setActiveImage(img)}
+                        className={`w-[56px] h-[56px] cursor-pointer border  ${
+                          activeImage === img
+                            ? " border-cerulean"
+                            : "border-superSilver"
+                        }`}
+                      />
+                    </div>
+                  )
+                )}
               </div>
-            ))}
-          </div>
+            </div>
+          )}
           <button onClick={() => setIsOpen(true)}>
             <Image
               src={`${DOMAIN}/${activeImage}`}
@@ -119,7 +127,7 @@ export const ProductSingleImages: React.FC<ProductSingleImagesProps> = ({
               width={400}
               height={400}
               priority
-              className="w-[500px] lg:w-full 2xl:w-[500px] h-[280px] md:h-[500px] flex justify-center items-center"
+              className="w-[500px] lg:w-full 2xl:w-[500px] h-[280px] md:h-[500px] flex justify-center items-center object-contain"
             />
           </button>
         </div>

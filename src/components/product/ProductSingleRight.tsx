@@ -63,15 +63,15 @@ const ProductSingleRight: React.FC<ProductSingleRightProps> = ({ product }) => {
 
   return (
     <div className="w-full h-full pl-2">
-      <div className="flex gap-3 mb-[15px]">
+      <div className="flex gap-2 justify-between mb-[15px]">
         <h2 className="hidden lg:block font-normal text-2xl leading-9 text-textColor">
           {product.title}
         </h2>
         <Link href={`/brands/${product.brand?.slug}`}>
           <Image
-            width={86}
-            height={31}
-            className="w-[86px] h-[36px] hidden xl:block"
+            width={120}
+            height={40}
+            className="w-[120px] h-[40px] hidden lgl:block"
             src={`${process.env.NEXT_PUBLIC_API_URL}/${product.brand?.path}`}
             alt="product.title"
           />
